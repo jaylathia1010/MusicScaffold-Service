@@ -1,0 +1,69 @@
+﻿@model MusicScaffold.Models.Movie
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAdded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAdded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberInStocks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberInStocks)
+        </dd>
+
+        @if (Model.byteFile != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.File)
+            </dt>
+
+            <dd>
+                @Html.ActionLink("Movie Certificate", "DownloadFile", new { id = Model.Id })
+            </dd>
+        }
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

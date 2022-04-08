@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MusicScaffold.Models.Customer>
+
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Customers", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MembershipType.Name)
+        </th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var customer in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => customer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => customer.MembershipType.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = customer.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = customer.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = customer.Id })
+            </td>
+        </tr>
+    }
+
+</table>
